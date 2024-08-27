@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Souscrire{% endblock %}
+
+{% block body %}
+    <h1>Create new Souscrire</h1>
+
+    {{ include('souscrire/_form.html.twig') }}
+
+    <a href="{{ path('app_souscrire_index') }}">back to list</a>
+{% endblock %}

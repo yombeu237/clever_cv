@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}InfoPerso{% endblock %}
+
+{% block body %}
+    <h1>InfoPerso</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ info_perso.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ info_perso.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ info_perso.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_infoperso_index') }}">back to list</a>
+
+    <a href="{{ path('app_infoperso_edit', {'id': info_perso.id}) }}">edit</a>
+
+    {{ include('infoperso/_delete_form.html.twig') }}
+{% endblock %}

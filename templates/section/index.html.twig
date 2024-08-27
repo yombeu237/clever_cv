@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Section index{% endblock %}
+
+{% block body %}
+    <h1>Section index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Etablissement</th>
+                <th>Ville</th>
+                <th>Date_debut</th>
+                <th>Date_fin</th>
+                <th>Description</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for section in sections %}
+            <tr>
+                <td>{{ section.id }}</td>
+                <td>{{ section.titre }}</td>
+                <td>{{ section.etablissement }}</td>
+                <td>{{ section.ville }}</td>
+                <td>{{ section.dateDebut ? section.dateDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ section.dateFin ? section.dateFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ section.description }}</td>
+                <td>{{ section.type }}</td>
+                <td>
+                    <a href="{{ path('app_section_show', {'id': section.id}) }}">show</a>
+                    <a href="{{ path('app_section_edit', {'id': section.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_section_new') }}">Create new</a>
+{% endblock %}

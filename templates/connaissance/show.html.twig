@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Connaissance{% endblock %}
+
+{% block body %}
+    <h1>Connaissance</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ connaissance.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ connaissance.titre }}</td>
+            </tr>
+            <tr>
+                <th>Niveau</th>
+                <td>{{ connaissance.niveau }}</td>
+            </tr>
+            <tr>
+                <th>Type_connaissance</th>
+                <td>{{ connaissance.typeConnaissance }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_connaissance_index') }}">back to list</a>
+
+    <a href="{{ path('app_connaissance_edit', {'id': connaissance.id}) }}">edit</a>
+
+    {{ include('connaissance/_delete_form.html.twig') }}
+{% endblock %}

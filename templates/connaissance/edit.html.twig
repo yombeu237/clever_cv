@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Connaissance{% endblock %}
+
+{% block body %}
+    <h1>Edit Connaissance</h1>
+
+    {{ include('connaissance/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_connaissance_index') }}">back to list</a>
+
+    {{ include('connaissance/_delete_form.html.twig') }}
+{% endblock %}
